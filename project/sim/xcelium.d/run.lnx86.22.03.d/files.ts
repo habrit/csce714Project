@@ -32,4 +32,4 @@
 1713646763 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/cpu_lv1_interface.sv
 1713650402 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/system_bus_interface.sv
 1713134573 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/cpu_pkg.sv
-1713134573 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/top.sv
+1713846508 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/top.sv

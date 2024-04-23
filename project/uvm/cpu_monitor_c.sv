@@ -14,12 +14,6 @@ class cpu_monitor_c extends uvm_monitor;
     // Virtual interface of used to drive and observe CPU-LV1 interface signals
     virtual interface cpu_lv1_interface vi_cpu_lv1_if;
 
-    virtual interface cpu_mesi_lru_interface vi_cpu_mesi_lru_if;
-    parameter INVALID = 3'b000;
-    parameter SHARED = 3'b001;
-    parameter MODIFIED = 3'b010;
-    parameter EXCLUSIVE = 3'b011;
-
     covergroup cover_cpu_packet;
         option.per_instance = 1;
         option.name = "cover_cpu_packets";
@@ -28,35 +22,20 @@ class cpu_monitor_c extends uvm_monitor;
         REQUEST_ADDRESS: coverpoint packet.address{
             option.auto_bin_max = 20;
         }
+ 
 
         READ_DATA: coverpoint packet.dat{
             option.auto_bin_max = 20;
         }
-
-
         ADDRESS_TYPE: coverpoint packet.addr_type;
         ILLEGAL: coverpoint packet.illegal;
-        NUMBERCYCLES: coverpoint packet.num_cycles;
-
+        CROSS_REQUEST_ADDRESS_TYPE: cross REQUEST, ADDRESS_TYPE;
         CROSS_REQUEST_DATA: cross REQUEST, READ_DATA;
         CROSS_REQUEST_ADDRESS: cross REQUEST, REQUEST_ADDRESS;
-        X_TYPE__ADDRTYPE: cross REQUEST, ADDRESS_TYPE{
-		ignore_bins ignore_icache_write = binsof(REQUEST) intersect {WRITE_REQ} && binsof(ADDRESS_TYPE) intersect {ICACHE};}
-
-    endgroup
-
-    covergroup cover_MESI_proc0;
-    option.per_instance = 1;
-    option.name = "cover_MESI_proc0";
-    MESI_C0_P: coverpoint c_mesi_proc
-    {
-        bins P0_INVALID = {INVALID};
-        bins P0_SHARED = {SHARED};
-        bins P0_MODIFIED = {MODIFIED};
-        bins P0_EXCLUSIVE = {EXCLUSIVE};
-	}
-
-
+        CROSS_REQUEST_ILLEGAL: cross REQUEST, ILLEGAL;
+        ILLEGAL_REQUEST: coverpoint packet.illegal{
+			bins illegal = {1};
+		}
 
     endgroup
 

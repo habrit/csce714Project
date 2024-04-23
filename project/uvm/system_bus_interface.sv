@@ -49,9 +49,18 @@ interface system_bus_interface(input clk);
 
 //ASSERTION2: data_in_bus_lv1_lv2 and cp_in_cache should not be asserted without lv2_rd being asserted in previous cycle
 
+assert_data_in_bus_lv1_lv2: assert property (prop_sig1_before_sig2(lv2_rd,data_in_bus_lv1_lv2))
+	else
+	`uvm_error("system_bus_interface",$sformatf("Assertion assert_data_in_bus_lv1_lv2 Failed: lv2_rd not asserted before data_in_bus_lv1_lv2 goes high"))
+
 
 //TODO: Add assertions at this interface
 //There are atleast 20 such assertions. Add as many as you can!!
+
+//ASSERTION3: bus_rd should not be asserted without bus_rdx being asserted in previous cycle
+	assert_bus_rd: assert property (prop_sig1_before_sig2(bus_rdx,bus_rd))
+	else
+	`uvm_error("system_bus_interface",$sformatf("Assertion assert_bus_rd Failed: bus_rdx not asserted before bus_rd goes high"))
 
 
 

@@ -38,5 +38,36 @@ interface cpu_lv1_interface(input clk);
 
 //TODO: Add assertions at this interface
 
+//ASSERTION2: Address should not be invalid when rd/wr is processed. 
+    property valid_addr_wr_rd;
+        @(posedge clk)
+          (cpu_rd || cpu_wr) |-> (addr_bus_cpu_lv1[31:0] !== 32'bx);
+    endproperty
+
+    assert_valid_addr_wr_rd: assert property (valid_addr_wr_rd)
+    else 
+        `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_valid_addr_wr_rd Failed: Address is invalid when rd/wr is processed"))
+
+//ASSERTION3: cpu_rd should be followed by data_in_bus_cpu_lv1 and both should be deasserted according to the HAS document. 
+    property valid_rd_transaction;
+        @(posedge clk)
+            cpu_rd |=> ##[0:$] data_in_bus_cpu_lv1 ##1 !cpu_rd ##1 !data_in_bus_cpu_lv1;
+    endproperty
+
+    assert_valid_rd_transaction: assert property (valid_rd_transaction)
+    else 
+        `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_valid_rd_transaction Failed: cpu_rd should be followed by data_in_bus_cpu_lv1 and both should be deasserted according to the HAS document"))
+
+//ASSERTION4: If data_in_bus_cpu_lv1 is asserted, cpu_rd should be high
+    property valid_data_in_bus_cpu_lv1;
+        @(posedge clk)
+            $rose(data_in_bus_cpu_lv1) |-> cpu_rd;
+    endproperty
+
+    assert_valid_data_in_bus_cpu_lv1: assert property (valid_data_in_bus_cpu_lv1)
+    else 
+        `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_valid_data_in_bus_cpu_lv1 Failed: If data_in_bus_cpu_lv1 is asserted, cpu_rd should be high"))
+
+
 
 endinterface

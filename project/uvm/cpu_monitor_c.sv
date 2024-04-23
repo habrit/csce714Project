@@ -19,6 +19,24 @@ class cpu_monitor_c extends uvm_monitor;
         option.name = "cover_cpu_packets";
         REQUEST: coverpoint packet.request_type;
         //TODO: add coverpoints for Data, Address, etc.
+        REQUEST_ADDRESS: coverpoint packet.address{
+            option.auto_bin_max = 20;
+        }
+ 
+
+        READ_DATA: coverpoint packet.dat{
+            option.auto_bin_max = 20;
+        }
+        ADDRESS_TYPE: coverpoint packet.addr_type;
+        ILLEGAL: coverpoint packet.illegal;
+        CROSS_REQUEST_ADDRESS_TYPE: cross REQUEST, ADDRESS_TYPE;
+        CROSS_REQUEST_DATA: cross REQUEST, READ_DATA;
+        CROSS_REQUEST_ADDRESS: cross REQUEST, REQUEST_ADDRESS;
+        CROSS_REQUEST_ILLEGAL: cross REQUEST, ILLEGAL;
+        ILLEGAL_REQUEST: coverpoint packet.illegal{
+			bins illegal = {1};
+		}
+
     endgroup
 
     //constructor
@@ -48,6 +66,9 @@ class cpu_monitor_c extends uvm_monitor;
             packet = cpu_mon_packet_c::type_id::create("packet", this);
             if(vi_cpu_lv1_if.cpu_rd === 1'b1) begin
                 packet.request_type = READ_REQ;
+            end
+            if(vi_cpu_lv1_if.cpu_wr === 1'b1) begin
+                packet.request_type = WRITE_REQ;
             end
             packet.address = vi_cpu_lv1_if.addr_bus_cpu_lv1;
             @(posedge vi_cpu_lv1_if.data_in_bus_cpu_lv1 or posedge vi_cpu_lv1_if.cpu_wr_done)

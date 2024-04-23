@@ -30,6 +30,6 @@
 1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/gold/memory.sv
 1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/gold/lrs_arbiter.sv
 1713646763 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/cpu_lv1_interface.sv
-1713649718 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/system_bus_interface.sv
+1713650402 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/system_bus_interface.sv
 1713134573 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/cpu_pkg.sv
 1713134573 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/top.sv

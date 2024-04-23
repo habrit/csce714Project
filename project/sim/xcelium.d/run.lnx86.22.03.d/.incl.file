@@ -56,3 +56,7 @@
 ../uvm/base_test.sv
 ./read_miss_icache.sv
 ../uvm/read_miss_icache.sv
+./read_miss_icache5.sv
+../uvm/read_miss_icache5.sv
+./illegalwrite.sv
+../uvm/illegalwrite.sv

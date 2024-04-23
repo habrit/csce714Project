@@ -56,3 +56,7 @@
 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/base_test.sv
 ../test/read_miss_icache.sv
 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/read_miss_icache.sv
+../test/read_miss_icache5.sv
+/home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/read_miss_icache5.sv
+../test/illegalwrite.sv
+/home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/illegalwrite.sv

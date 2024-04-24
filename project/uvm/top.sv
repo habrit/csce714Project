@@ -12,6 +12,14 @@
 
 `define INST_TOP_CORE inst_cache_lv1_multicore
 `define NUM_CORE 4
+`define MESI_LRU_0 inst_cache_lv1_unicore_0.inst_cache_wrapper_lv1_dl.inst_cache_controller_lv1_dl
+`define MESI_LRU_1 inst_cache_lv1_unicore_1.inst_cache_wrapper_lv1_dl.inst_cache_controller_lv1_dl
+`define MESI_LRU_2 inst_cache_lv1_unicore_2.inst_cache_wrapper_lv1_dl.inst_cache_controller_lv1_dl
+`define MESI_LRU_3 inst_cache_lv1_unicore_3.inst_cache_wrapper_lv1_dl.inst_cache_controller_lv1_dl
+`define BLK_STATE0 inst_cache_lv1_unicore_0.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl 
+`define BLK_STATE1 inst_cache_lv1_unicore_1.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl
+`define BLK_STATE2 inst_cache_lv1_unicore_2.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl
+`define BLK_STATE3 inst_cache_lv1_unicore_3.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl
 
 module top;
 
@@ -49,6 +57,7 @@ module top;
     // Instantiate the interfaces
     cpu_lv1_interface       inst_cpu_lv1_if[0:3](clk);
     system_bus_interface    inst_system_bus_if(clk);
+    cpu_mesi_lru_interface  mesi_state_if[0:3]();
 
     // Assign internal signals of the interface
     assign inst_system_bus_if.data_bus_lv1_lv2      = inst_cache_top.data_bus_lv1_lv2;
@@ -63,6 +72,50 @@ module top;
     assign inst_system_bus_if.invalidate            = inst_cache_top.`INST_TOP_CORE.invalidate;
     assign inst_system_bus_if.bus_rd                = inst_cache_top.`INST_TOP_CORE.bus_rd;
     assign inst_system_bus_if.bus_rdx               = inst_cache_top.`INST_TOP_CORE.bus_rdx;
+    assign mesi_state_if[0].current_mesi_snoop	    = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_0.inst_mesi_fsm_lv1.current_mesi_snoop;
+    assign mesi_state_if[1].current_mesi_snoop	    = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_1.inst_mesi_fsm_lv1.current_mesi_snoop;
+    assign mesi_state_if[2].current_mesi_snoop	    = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_2.inst_mesi_fsm_lv1.current_mesi_snoop;
+    assign mesi_state_if[3].current_mesi_snoop	    = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_3.inst_mesi_fsm_lv1.current_mesi_snoop;
+    assign mesi_state_if[0].updated_mesi_snoop	    = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_0.inst_mesi_fsm_lv1.updated_mesi_snoop;
+    assign mesi_state_if[1].updated_mesi_snoop	    = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_1.inst_mesi_fsm_lv1.updated_mesi_snoop;
+    assign mesi_state_if[2].updated_mesi_snoop	    = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_2.inst_mesi_fsm_lv1.updated_mesi_snoop;
+    assign mesi_state_if[3].updated_mesi_snoop	    = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_3.inst_mesi_fsm_lv1.updated_mesi_snoop;
+    assign mesi_state_if[0].blk_hit_proc 	    = inst_cache_top.`INST_TOP_CORE.`BLK_STATE0.blk_hit_proc;
+    assign mesi_state_if[1].blk_hit_proc 	    = inst_cache_top.`INST_TOP_CORE.`BLK_STATE1.blk_hit_proc;
+    assign mesi_state_if[2].blk_hit_proc 	    = inst_cache_top.`INST_TOP_CORE.`BLK_STATE2.blk_hit_proc;
+    assign mesi_state_if[3].blk_hit_proc 	    = inst_cache_top.`INST_TOP_CORE.`BLK_STATE3.blk_hit_proc;
+    assign mesi_state_if[0].blk_free 	            = inst_cache_top.`INST_TOP_CORE.`BLK_STATE0.blk_free;
+    assign mesi_state_if[1].blk_free 	            = inst_cache_top.`INST_TOP_CORE.`BLK_STATE1.blk_free;
+    assign mesi_state_if[2].blk_free 	            = inst_cache_top.`INST_TOP_CORE.`BLK_STATE2.blk_free;
+    assign mesi_state_if[3].blk_free 	            = inst_cache_top.`INST_TOP_CORE.`BLK_STATE3.blk_free;
+    assign mesi_state_if[0].current_mesi_proc   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_0.inst_mesi_fsm_lv1.current_mesi_proc;
+    assign mesi_state_if[1].current_mesi_proc   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_1.inst_mesi_fsm_lv1.current_mesi_proc;
+    assign mesi_state_if[2].current_mesi_proc   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_2.inst_mesi_fsm_lv1.current_mesi_proc;
+    assign mesi_state_if[3].current_mesi_proc   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_3.inst_mesi_fsm_lv1.current_mesi_proc;
+    assign mesi_state_if[0].updated_mesi_proc   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_0.inst_mesi_fsm_lv1.updated_mesi_proc;
+    assign mesi_state_if[1].updated_mesi_proc   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_1.inst_mesi_fsm_lv1.updated_mesi_proc;
+    assign mesi_state_if[2].updated_mesi_proc   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_2.inst_mesi_fsm_lv1.updated_mesi_proc;
+    assign mesi_state_if[3].updated_mesi_proc   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_3.inst_mesi_fsm_lv1.updated_mesi_proc;
+    assign mesi_state_if[0].blk_accessed_main	= inst_cache_top.`INST_TOP_CORE.`MESI_LRU_0.inst_lru_block_lv1.blk_accessed_main;
+    assign mesi_state_if[1].blk_accessed_main	= inst_cache_top.`INST_TOP_CORE.`MESI_LRU_1.inst_lru_block_lv1.blk_accessed_main;
+    assign mesi_state_if[2].blk_accessed_main	= inst_cache_top.`INST_TOP_CORE.`MESI_LRU_2.inst_lru_block_lv1.blk_accessed_main;
+    assign mesi_state_if[3].blk_accessed_main	= inst_cache_top.`INST_TOP_CORE.`MESI_LRU_3.inst_lru_block_lv1.blk_accessed_main;
+    assign mesi_state_if[0].lru_replacement_proc   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_0.inst_lru_block_lv1.lru_replacement_proc;
+    assign mesi_state_if[1].lru_replacement_proc   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_1.inst_lru_block_lv1.lru_replacement_proc;
+    assign mesi_state_if[2].lru_replacement_proc   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_2.inst_lru_block_lv1.lru_replacement_proc;
+    assign mesi_state_if[3].lru_replacement_proc   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_3.inst_lru_block_lv1.lru_replacement_proc;
+    assign mesi_state_if[0].lru_var   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_0.inst_lru_block_lv1.lru_var[0];
+    assign mesi_state_if[1].lru_var   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_1.inst_lru_block_lv1.lru_var[0];
+    assign mesi_state_if[2].lru_var   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_2.inst_lru_block_lv1.lru_var[0];
+    assign mesi_state_if[3].lru_var   = inst_cache_top.`INST_TOP_CORE.`MESI_LRU_3.inst_lru_block_lv1.lru_var[0];
+    assign mesi_state_if[0].clk   = clk;
+    assign mesi_state_if[1].clk   = clk;
+    assign mesi_state_if[2].clk   = clk;
+    assign mesi_state_if[3].clk   = clk;
+    assign mesi_state_if[0].proc_id   = 'b00;
+    assign mesi_state_if[1].proc_id   = 'b01;
+    assign mesi_state_if[2].proc_id   = 'b10;
+    assign mesi_state_if[3].proc_id   = 'b11;
 
     // instantiate memory golden model
     memory #(
@@ -142,7 +195,15 @@ module top;
         uvm_config_db#(virtual interface cpu_lv1_interface)::set(null,"*.tb.cpu[1].*","vif",inst_cpu_lv1_if[1]);
         uvm_config_db#(virtual interface cpu_lv1_interface)::set(null,"*.tb.cpu[2].*","vif",inst_cpu_lv1_if[2]);
         uvm_config_db#(virtual interface cpu_lv1_interface)::set(null,"*.tb.cpu[3].*","vif",inst_cpu_lv1_if[3]);
+        uvm_config_db#(virtual interface cpu_mesi_lru_interface)::set(null,"*.tb.cpu[0].*","mesi_if",mesi_state_if[0]);
+        uvm_config_db#(virtual interface cpu_mesi_lru_interface)::set(null,"*.tb.cpu[1].*","mesi_if",mesi_state_if[1]);
+        uvm_config_db#(virtual interface cpu_mesi_lru_interface)::set(null,"*.tb.cpu[2].*","mesi_if",mesi_state_if[2]);
+        uvm_config_db#(virtual interface cpu_mesi_lru_interface)::set(null,"*.tb.cpu[3].*","mesi_if",mesi_state_if[3]);
         uvm_config_db#(virtual interface system_bus_interface)::set(null,"*.tb.*","v_sbus_if",inst_system_bus_if);
+        uvm_config_db#(virtual interface cpu_mesi_lru_interface)::set(null,"*.tb.*","mesi_if0",mesi_state_if[0]);
+        uvm_config_db#(virtual interface cpu_mesi_lru_interface)::set(null,"*.tb.*","mesi_if1",mesi_state_if[1]);
+        uvm_config_db#(virtual interface cpu_mesi_lru_interface)::set(null,"*.tb.*","mesi_if2",mesi_state_if[2]);
+        uvm_config_db#(virtual interface cpu_mesi_lru_interface)::set(null,"*.tb.*","mesi_if3",mesi_state_if[3]);
         run_test();
         `uvm_info("TOP", "DONE", UVM_LOW)
     end

@@ -46,3 +46,4 @@
     ../uvm/system_bus_interface.sv
     ../uvm/cpu_pkg.sv
     ../uvm/top.sv
+    ../uvm/cpu_mesi_lru_interface.sv

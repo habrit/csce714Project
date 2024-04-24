@@ -37,3 +37,4 @@
 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/system_bus_interface.sv
 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/cpu_pkg.sv
 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/top.sv
+/home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/cpu_mesi_lru_interface.sv

@@ -9,3 +9,4 @@
 `include "read_miss_icache.sv"
 `include "read_miss_icache5.sv"
 `include "illegalwrite.sv"
+`include "random_write.sv"

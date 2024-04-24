@@ -1,5 +1,5 @@
 xrun: 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
-TOOL:	xrun	22.03-s012: Started on Apr 23, 2024 at 21:52:41 CDT
+TOOL:	xrun	22.03-s012: Started on Apr 23, 2024 at 22:06:40 CDT
 irun
 	-f sim_cmd_line.f
 		+access+rwc
@@ -10,7 +10,7 @@ irun
 		-covfile ./cov_conf.ccf
 		-uvmhome /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv
 		+UVM_VERBOSITY=UVM_LOW
-	+UVM_TESTNAME=illegalwrite
+	+UVM_TESTNAME=random_write
 
    User defined plus("+") options:
 	+UVM_VERBOSITY=UVM_LOW
@@ -43,51 +43,28 @@ CDNS-UVM-1.1d (22.03-s012)
       (Specify +UVM_NO_RELNOTES to turn off this notice)
 
 UVM_INFO ../uvm/top.sv(193) @ 0: reporter [TOP] Starting UVM test
-UVM_INFO @ 0: reporter [RNTST] Running test illegalwrite...
+UVM_INFO @ 0: reporter [RNTST] Running test random_write...
 UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
 ---------------------------------------------------------------------
 Name                        Type                     Size  Value     
 ---------------------------------------------------------------------
-uvm_test_top                illegalwrite             -     @2793     
-  tb                        env                      -     @2902     
-    cpu[0]                  cpu_agent_c              -     @2934     
-      driver                cpu_driver_c             -     @4754     
-        rsp_port            uvm_analysis_port        -     @4905     
+uvm_test_top                random_write             -     @2800     
+  tb                        env                      -     @2909     
+    cpu[0]                  cpu_agent_c              -     @2941     
+      driver                cpu_driver_c             -     @4761     
+        rsp_port            uvm_analysis_port        -     @4912     
           recording_detail  integral                 32    'd1       
-        seq_item_port       uvm_seq_item_pull_port   -     @4856     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-      monitor               cpu_monitor_c            -     @4077     
-        mon_out             uvm_analysis_port        -     @4132     
+        seq_item_port       uvm_seq_item_pull_port   -     @4863     
           recording_detail  integral                 32    'd1       
         recording_detail    integral                 32    'd1       
-      sequencer             cpu_sequencer_c          -     @4168     
-        rsp_export          uvm_analysis_export      -     @4225     
-          recording_detail  integral                 32    'd1       
-        seq_item_export     uvm_seq_item_pull_imp    -     @4775     
+      monitor               cpu_monitor_c            -     @4084     
+        mon_out             uvm_analysis_port        -     @4139     
           recording_detail  integral                 32    'd1       
         recording_detail    integral                 32    'd1       
-        arbitration_queue   array                    0     -         
-        lock_queue          array                    0     -         
-        num_last_reqs       integral                 32    'd1       
-        num_last_rsps       integral                 32    'd1       
-      is_active             uvm_active_passive_enum  1     UVM_ACTIVE
-      recording_detail      integral                 32    'd1       
-    cpu[1]                  cpu_agent_c              -     @2933     
-      driver                cpu_driver_c             -     @5621     
-        rsp_port            uvm_analysis_port        -     @5766     
+      sequencer             cpu_sequencer_c          -     @4175     
+        rsp_export          uvm_analysis_export      -     @4232     
           recording_detail  integral                 32    'd1       
-        seq_item_port       uvm_seq_item_pull_port   -     @5718     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-      monitor               cpu_monitor_c            -     @4962     
-        mon_out             uvm_analysis_port        -     @5010     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-      sequencer             cpu_sequencer_c          -     @5045     
-        rsp_export          uvm_analysis_export      -     @5101     
-          recording_detail  integral                 32    'd1       
-        seq_item_export     uvm_seq_item_pull_imp    -     @5641     
+        seq_item_export     uvm_seq_item_pull_imp    -     @4782     
           recording_detail  integral                 32    'd1       
         recording_detail    integral                 32    'd1       
         arbitration_queue   array                    0     -         
@@ -96,44 +73,21 @@ uvm_test_top                illegalwrite             -     @2793
         num_last_rsps       integral                 32    'd1       
       is_active             uvm_active_passive_enum  1     UVM_ACTIVE
       recording_detail      integral                 32    'd1       
-    cpu[2]                  cpu_agent_c              -     @2963     
-      driver                cpu_driver_c             -     @6474     
-        rsp_port            uvm_analysis_port        -     @6619     
+    cpu[1]                  cpu_agent_c              -     @2940     
+      driver                cpu_driver_c             -     @5628     
+        rsp_port            uvm_analysis_port        -     @5773     
           recording_detail  integral                 32    'd1       
-        seq_item_port       uvm_seq_item_pull_port   -     @6571     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-      monitor               cpu_monitor_c            -     @5815     
-        mon_out             uvm_analysis_port        -     @5863     
+        seq_item_port       uvm_seq_item_pull_port   -     @5725     
           recording_detail  integral                 32    'd1       
         recording_detail    integral                 32    'd1       
-      sequencer             cpu_sequencer_c          -     @5898     
-        rsp_export          uvm_analysis_export      -     @5954     
-          recording_detail  integral                 32    'd1       
-        seq_item_export     uvm_seq_item_pull_imp    -     @6494     
+      monitor               cpu_monitor_c            -     @4969     
+        mon_out             uvm_analysis_port        -     @5017     
           recording_detail  integral                 32    'd1       
         recording_detail    integral                 32    'd1       
-        arbitration_queue   array                    0     -         
-        lock_queue          array                    0     -         
-        num_last_reqs       integral                 32    'd1       
-        num_last_rsps       integral                 32    'd1       
-      is_active             uvm_active_passive_enum  1     UVM_ACTIVE
-      recording_detail      integral                 32    'd1       
-    cpu[3]                  cpu_agent_c              -     @2993     
-      driver                cpu_driver_c             -     @7327     
-        rsp_port            uvm_analysis_port        -     @7472     
+      sequencer             cpu_sequencer_c          -     @5052     
+        rsp_export          uvm_analysis_export      -     @5108     
           recording_detail  integral                 32    'd1       
-        seq_item_port       uvm_seq_item_pull_port   -     @7424     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-      monitor               cpu_monitor_c            -     @6668     
-        mon_out             uvm_analysis_port        -     @6716     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-      sequencer             cpu_sequencer_c          -     @6751     
-        rsp_export          uvm_analysis_export      -     @6807     
-          recording_detail  integral                 32    'd1       
-        seq_item_export     uvm_seq_item_pull_imp    -     @7347     
+        seq_item_export     uvm_seq_item_pull_imp    -     @5648     
           recording_detail  integral                 32    'd1       
         recording_detail    integral                 32    'd1       
         arbitration_queue   array                    0     -         
@@ -142,26 +96,72 @@ uvm_test_top                illegalwrite             -     @2793
         num_last_rsps       integral                 32    'd1       
       is_active             uvm_active_passive_enum  1     UVM_ACTIVE
       recording_detail      integral                 32    'd1       
-    sb                      cache_scoreboard_c       -     @3780     
-      sb_cpu0m              uvm_analysis_imp_cpu0m   -     @3846     
+    cpu[2]                  cpu_agent_c              -     @2970     
+      driver                cpu_driver_c             -     @6481     
+        rsp_port            uvm_analysis_port        -     @6626     
+          recording_detail  integral                 32    'd1       
+        seq_item_port       uvm_seq_item_pull_port   -     @6578     
+          recording_detail  integral                 32    'd1       
         recording_detail    integral                 32    'd1       
-      sb_cpu1m              uvm_analysis_imp_cpu1m   -     @3897     
+      monitor               cpu_monitor_c            -     @5822     
+        mon_out             uvm_analysis_port        -     @5870     
+          recording_detail  integral                 32    'd1       
         recording_detail    integral                 32    'd1       
-      sb_cpu2m              uvm_analysis_imp_cpu2m   -     @3946     
+      sequencer             cpu_sequencer_c          -     @5905     
+        rsp_export          uvm_analysis_export      -     @5961     
+          recording_detail  integral                 32    'd1       
+        seq_item_export     uvm_seq_item_pull_imp    -     @6501     
+          recording_detail  integral                 32    'd1       
         recording_detail    integral                 32    'd1       
-      sb_cpu3m              uvm_analysis_imp_cpu3m   -     @3995     
+        arbitration_queue   array                    0     -         
+        lock_queue          array                    0     -         
+        num_last_reqs       integral                 32    'd1       
+        num_last_rsps       integral                 32    'd1       
+      is_active             uvm_active_passive_enum  1     UVM_ACTIVE
+      recording_detail      integral                 32    'd1       
+    cpu[3]                  cpu_agent_c              -     @3000     
+      driver                cpu_driver_c             -     @7334     
+        rsp_port            uvm_analysis_port        -     @7479     
+          recording_detail  integral                 32    'd1       
+        seq_item_port       uvm_seq_item_pull_port   -     @7431     
+          recording_detail  integral                 32    'd1       
         recording_detail    integral                 32    'd1       
-      sb_sbus               uvm_analysis_imp_sbus    -     @4044     
+      monitor               cpu_monitor_c            -     @6675     
+        mon_out             uvm_analysis_port        -     @6723     
+          recording_detail  integral                 32    'd1       
+        recording_detail    integral                 32    'd1       
+      sequencer             cpu_sequencer_c          -     @6758     
+        rsp_export          uvm_analysis_export      -     @6814     
+          recording_detail  integral                 32    'd1       
+        seq_item_export     uvm_seq_item_pull_imp    -     @7354     
+          recording_detail  integral                 32    'd1       
+        recording_detail    integral                 32    'd1       
+        arbitration_queue   array                    0     -         
+        lock_queue          array                    0     -         
+        num_last_reqs       integral                 32    'd1       
+        num_last_rsps       integral                 32    'd1       
+      is_active             uvm_active_passive_enum  1     UVM_ACTIVE
+      recording_detail      integral                 32    'd1       
+    sb                      cache_scoreboard_c       -     @3787     
+      sb_cpu0m              uvm_analysis_imp_cpu0m   -     @3853     
+        recording_detail    integral                 32    'd1       
+      sb_cpu1m              uvm_analysis_imp_cpu1m   -     @3904     
+        recording_detail    integral                 32    'd1       
+      sb_cpu2m              uvm_analysis_imp_cpu2m   -     @3953     
+        recording_detail    integral                 32    'd1       
+      sb_cpu3m              uvm_analysis_imp_cpu3m   -     @4002     
+        recording_detail    integral                 32    'd1       
+      sb_sbus               uvm_analysis_imp_sbus    -     @4051     
         recording_detail    integral                 32    'd1       
       recording_detail      integral                 32    'd1       
-    sbus_monitor            system_bus_monitor_c     -     @3641     
-      sbus_out              uvm_analysis_port        -     @3743     
+    sbus_monitor            system_bus_monitor_c     -     @3648     
+      sbus_out              uvm_analysis_port        -     @3750     
         recording_detail    integral                 32    'd1       
       recording_detail      integral                 32    'd1       
-    vsequencer              virtual_sequencer_c      -     @3023     
-      rsp_export            uvm_analysis_export      -     @3112     
+    vsequencer              virtual_sequencer_c      -     @3030     
+      rsp_export            uvm_analysis_export      -     @3119     
         recording_detail    integral                 32    'd1       
-      seq_item_export       uvm_seq_item_pull_imp    -     @3662     
+      seq_item_export       uvm_seq_item_pull_imp    -     @3669     
         recording_detail    integral                 32    'd1       
       recording_detail      integral                 32    'd1       
       arbitration_queue     array                    0     -         
@@ -171,7 +171,7 @@ uvm_test_top                illegalwrite             -     @2793
     recording_detail        integral                 32    'd1       
 ---------------------------------------------------------------------
 
-UVM_INFO ../test/illegalwrite.sv(26) @ 0: uvm_test_top [illegalwrite] Executing illegalwrite test
+UVM_INFO ../test/random_write.sv(27) @ 0: uvm_test_top [random_write] Executing random_write test
 SDI/Verilog Transaction Recording Facility Version 22.03-s012
 UVM_INFO ../uvm/system_bus_monitor_c.sv(240) @ 0: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] RUN Phase
 UVM_INFO ../uvm/cache_scoreboard_c.sv(66) @ 0: uvm_test_top.tb.sb [cache_scoreboard_c] RUN Phase
@@ -183,78 +183,1711 @@ UVM_INFO ../uvm/cpu_monitor_c.sv(251) @ 0: uvm_test_top.tb.cpu[1].monitor [cpu_m
 UVM_INFO ../uvm/cpu_driver_c.sv(48) @ 0: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] RUN Phase
 UVM_INFO ../uvm/cpu_monitor_c.sv(251) @ 0: uvm_test_top.tb.cpu[0].monitor [cpu_monitor_c] RUN Phase
 UVM_INFO ../uvm/cpu_driver_c.sv(48) @ 0: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] RUN Phase
-UVM_INFO ../uvm/virtual_seqs.sv(30) @ 0: uvm_test_top.tb.vsequencer@@illegalwrite_seq [illegalwrite_seq] raise_objection
-UVM_INFO ../uvm/virtual_seqs.sv(31) @ 0: uvm_test_top.tb.vsequencer@@illegalwrite_seq [illegalwrite_seq] Main Processor=1	SP1=3	SP2=2
-UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 0: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+UVM_INFO ../uvm/virtual_seqs.sv(30) @ 0: uvm_test_top.tb.vsequencer@@random_write_seq [random_write_seq] raise_objection
+UVM_INFO ../uvm/virtual_seqs.sv(31) @ 0: uvm_test_top.tb.vsequencer@@random_write_seq [random_write_seq] Main Processor=1	SP1=0	SP2=2
+xmsim: *W,OLDURR: The default algorithm for $urandom_range and randcase is used. It can have distribution problems..
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 0: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
 ---------------------------------------------------------------------------------------------------
 Name                           Type               Size  Value                                      
 ---------------------------------------------------------------------------------------------------
-trans                          cpu_transaction_c  -     @7947                                      
-  data                         integral           32    'h66e1ca2e                                 
-  address                      integral           32    'h3d658623                                 
+trans                          cpu_transaction_c  -     @7954                                      
+  data                         integral           32    'hb25d6ca                                  
+  address                      integral           32    'h21c37b55                                 
   request_type                 request_t          1     WRITE_REQ                                  
   access_cache_type            access_cache_t     1     ICACHE_ACC                                 
   begin_time                   time               64    0                                          
   depth                        int                32    'd2                                        
-  parent sequence (name)       string             16    illegalwrite_seq                           
-  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.illegalwrite_seq
-  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
----------------------------------------------------------------------------------------------------
-
-UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 1255: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
-UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 1255: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
----------------------------------------------------------------------------------------------------
-Name                           Type               Size  Value                                      
----------------------------------------------------------------------------------------------------
-trans                          cpu_transaction_c  -     @7900                                      
-  data                         integral           32    'h2a61fc8                                  
-  address                      integral           32    'h22f81c63                                 
-  request_type                 request_t          1     WRITE_REQ                                  
-  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
-  begin_time                   time               64    1255                                       
-  depth                        int                32    'd2                                        
-  parent sequence (name)       string             16    illegalwrite_seq                           
-  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.illegalwrite_seq
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
   sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
 ---------------------------------------------------------------------------------------------------
 
-UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 2415: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
-UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 2415: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 1295: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 1295: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
 ---------------------------------------------------------------------------------------------------
 Name                           Type               Size  Value                                      
 ---------------------------------------------------------------------------------------------------
-trans                          cpu_transaction_c  -     @7832                                      
-  data                         integral           32    'hd2e2b8d2                                 
-  address                      integral           32    'h51b8ecc                                  
+trans                          cpu_transaction_c  -     @7907                                      
+  data                         integral           32    'h8dc7f1e                                  
+  address                      integral           32    'h316c6839                                 
   request_type                 request_t          1     WRITE_REQ                                  
   access_cache_type            access_cache_t     1     ICACHE_ACC                                 
-  begin_time                   time               64    2415                                       
+  begin_time                   time               64    1295                                       
   depth                        int                32    'd2                                        
-  parent sequence (name)       string             16    illegalwrite_seq                           
-  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.illegalwrite_seq
-  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
 ---------------------------------------------------------------------------------------------------
 
-UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 3565: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
-UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 3565: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 2605: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 2605: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
 ---------------------------------------------------------------------------------------------------
 Name                           Type               Size  Value                                      
 ---------------------------------------------------------------------------------------------------
-trans                          cpu_transaction_c  -     @7804                                      
-  data                         integral           32    'h3f674bf5                                 
-  address                      integral           32    'h26a64ad3                                 
+trans                          cpu_transaction_c  -     @7842                                      
+  data                         integral           32    'h8eb584da                                 
+  address                      integral           32    'h397131bb                                 
   request_type                 request_t          1     WRITE_REQ                                  
   access_cache_type            access_cache_t     1     ICACHE_ACC                                 
-  begin_time                   time               64    3565                                       
+  begin_time                   time               64    2605                                       
   depth                        int                32    'd2                                        
-  parent sequence (name)       string             16    illegalwrite_seq                           
-  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.illegalwrite_seq
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 3785: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 3785: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7839                                      
+  data                         integral           32    'h1196353f                                 
+  address                      integral           32    'h2c11dee7                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    3785                                       
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
   sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
 ---------------------------------------------------------------------------------------------------
 
-UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 4795: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
-UVM_INFO ../uvm/virtual_seqs.sv(38) @ 4795: uvm_test_top.tb.vsequencer@@illegalwrite_seq [illegalwrite_seq] drop_objection
-UVM_INFO /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 4795: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 4945: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 4945: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7811                                      
+  data                         integral           32    'h5219c3f2                                 
+  address                      integral           32    'h1bc12dc7                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    4945                                       
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 6185: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 6185: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7789                                      
+  data                         integral           32    'h6d9ce62a                                 
+  address                      integral           32    'h87f1e79                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    6185                                       
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 7485: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 7485: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7787                                      
+  data                         integral           32    'h72716ec4                                 
+  address                      integral           32    'h1b262da1                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    7485                                       
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 8625: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 8625: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7761                                      
+  data                         integral           32    'h5837b099                                 
+  address                      integral           32    'h2f8ea3a8                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    8625                                       
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 9825: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 9825: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7839                                      
+  data                         integral           32    'h10646cd3                                 
+  address                      integral           32    'h3c52f64e                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    9825                                       
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 11115: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 11115: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7924                                      
+  data                         integral           32    'h3595a33d                                 
+  address                      integral           32    'h33b32c9d                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    11115                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 12265: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 12265: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7855                                      
+  data                         integral           32    'he906756                                  
+  address                      integral           32    'h236f3f83                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    12265                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 13515: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 13515: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7863                                      
+  data                         integral           32    'h964e71fd                                 
+  address                      integral           32    'h14ecb959                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    13515                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 14715: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 14715: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7850                                      
+  data                         integral           32    'h7171457b                                 
+  address                      integral           32    'h2c5351ac                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    14715                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 15975: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 15975: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7851                                      
+  data                         integral           32    'h962fb8bd                                 
+  address                      integral           32    'h2e55cda9                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    15975                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 17255: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 17255: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7926                                      
+  data                         integral           32    'hc7af52fc                                 
+  address                      integral           32    'h3fd9a969                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    17255                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 18515: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 18515: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7901                                      
+  data                         integral           32    'hc882fb01                                 
+  address                      integral           32    'h3bf968dc                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    18515                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 19845: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 19845: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7860                                      
+  data                         integral           32    'h1fab5b81                                 
+  address                      integral           32    'h22b50bf9                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    19845                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 21185: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 21185: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7856                                      
+  data                         integral           32    'h2ff6318c                                 
+  address                      integral           32    'h143f49cd                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    21185                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 22325: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 22325: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7798                                      
+  data                         integral           32    'h8d540175                                 
+  address                      integral           32    'h1df2ad2a                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    22325                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 23475: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 23475: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7847                                      
+  data                         integral           32    'hb081a4f3                                 
+  address                      integral           32    'h3727705b                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    23475                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 24795: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 24795: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7773                                      
+  data                         integral           32    'h78844cf5                                 
+  address                      integral           32    'h3af8173e                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    24795                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 25965: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 25965: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7841                                      
+  data                         integral           32    'hba2e559a                                 
+  address                      integral           32    'h24b1dc96                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    25965                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 27175: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 27175: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7791                                      
+  data                         integral           32    'hc39ff339                                 
+  address                      integral           32    'h229fc6e7                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    27175                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 28375: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 28375: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7771                                      
+  data                         integral           32    'hea4c8655                                 
+  address                      integral           32    'h676cfc5                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    28375                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 29705: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 29705: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7948                                      
+  data                         integral           32    'h52d9aee                                  
+  address                      integral           32    'h14e9bc5d                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    29705                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 30885: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 30885: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7826                                      
+  data                         integral           32    'hc9957baf                                 
+  address                      integral           32    'h206b4a91                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    30885                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 32145: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 32145: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7786                                      
+  data                         integral           32    'h955e2f0c                                 
+  address                      integral           32    'h2448b57a                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    32145                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 33365: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 33365: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7772                                      
+  data                         integral           32    'h8f2a4948                                 
+  address                      integral           32    'h29e78733                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    33365                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 34555: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 34555: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7810                                      
+  data                         integral           32    'he647d97d                                 
+  address                      integral           32    'h156f7772                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    34555                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 35865: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 35865: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7845                                      
+  data                         integral           32    'h499d3054                                 
+  address                      integral           32    'h2b934b62                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    35865                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 37005: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 37005: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7790                                      
+  data                         integral           32    'he6c050e2                                 
+  address                      integral           32    'h3ec5c115                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    37005                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 38255: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 38255: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7766                                      
+  data                         integral           32    'h7a941904                                 
+  address                      integral           32    'ha541357                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    38255                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 39445: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 39445: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7950                                      
+  data                         integral           32    'h911a7505                                 
+  address                      integral           32    'h17a3cc80                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    39445                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 40625: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 40625: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7952                                      
+  data                         integral           32    'h75c0cd7                                  
+  address                      integral           32    'hadca427                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    40625                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 41955: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 41955: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7819                                      
+  data                         integral           32    'h47f17ce7                                 
+  address                      integral           32    'h3b241d91                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    41955                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 43245: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 43245: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7844                                      
+  data                         integral           32    'h99742d45                                 
+  address                      integral           32    'h16077aa4                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    43245                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 44415: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 44415: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7813                                      
+  data                         integral           32    'h4e955d58                                 
+  address                      integral           32    'h2946b456                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    44415                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 45555: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 45555: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7912                                      
+  data                         integral           32    'h7eb4929c                                 
+  address                      integral           32    'h3e4754e8                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    45555                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 46845: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 46845: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7852                                      
+  data                         integral           32    'hed26c244                                 
+  address                      integral           32    'h393113fe                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    46845                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 48085: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 48085: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7768                                      
+  data                         integral           32    'hd970533d                                 
+  address                      integral           32    'h312974d8                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    48085                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 49275: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 49275: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7774                                      
+  data                         integral           32    'h2c401d68                                 
+  address                      integral           32    'h13bdb944                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    49275                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 50585: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 50585: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7865                                      
+  data                         integral           32    'h1e164c44                                 
+  address                      integral           32    'h33609f83                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    50585                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 51795: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 51795: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7761                                      
+  data                         integral           32    'h7b55bc57                                 
+  address                      integral           32    'hb5f6258                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    51795                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 53015: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 53015: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7839                                      
+  data                         integral           32    'h9f6c0d8e                                 
+  address                      integral           32    'hdfa08d7                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    53015                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 54185: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 54185: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7949                                      
+  data                         integral           32    'h7dacf555                                 
+  address                      integral           32    'hda35111                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    54185                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 55525: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 55525: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7822                                      
+  data                         integral           32    'h74e55ca9                                 
+  address                      integral           32    'ha5b3b06                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    55525                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 56865: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 56865: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7769                                      
+  data                         integral           32    'h2a46b4fc                                 
+  address                      integral           32    'h31af08a5                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    56865                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 58125: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 58125: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7909                                      
+  data                         integral           32    'hd99f0da5                                 
+  address                      integral           32    'h115eb2ea                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    58125                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 59385: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 59385: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7842                                      
+  data                         integral           32    'h848ee903                                 
+  address                      integral           32    'h205d05ee                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    59385                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 60565: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 60565: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7793                                      
+  data                         integral           32    'h13237019                                 
+  address                      integral           32    'h27b73580                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    60565                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 61905: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 61905: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7786                                      
+  data                         integral           32    'h892f6834                                 
+  address                      integral           32    'h276d41c1                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    61905                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 63115: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 63115: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7855                                      
+  data                         integral           32    'h9920412e                                 
+  address                      integral           32    'h1671f6d8                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    63115                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 64435: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 64435: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7823                                      
+  data                         integral           32    'hd2e19e76                                 
+  address                      integral           32    'h2854d9a                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    64435                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 65735: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 65735: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7947                                      
+  data                         integral           32    'h54bd3b4c                                 
+  address                      integral           32    'h1481c2e9                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    65735                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 66945: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 66945: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7907                                      
+  data                         integral           32    'h15718f59                                 
+  address                      integral           32    'h35ff97fd                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    66945                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 68275: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 68275: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7789                                      
+  data                         integral           32    'he701120b                                 
+  address                      integral           32    'h2fa692b1                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    68275                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 69475: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 69475: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7811                                      
+  data                         integral           32    'h63708a95                                 
+  address                      integral           32    'h38ceed31                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    69475                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 70745: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 70745: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7767                                      
+  data                         integral           32    'h8bf2a332                                 
+  address                      integral           32    'h27e06637                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    70745                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 72025: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 72025: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7795                                      
+  data                         integral           32    'h895b05f5                                 
+  address                      integral           32    'h18dc2ff                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    72025                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 73245: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 73245: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7794                                      
+  data                         integral           32    'h8f00746d                                 
+  address                      integral           32    'h2abc7f73                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    73245                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 74565: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 74565: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7917                                      
+  data                         integral           32    'h4812bf91                                 
+  address                      integral           32    'h2c146197                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    74565                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 75775: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 75775: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7901                                      
+  data                         integral           32    'hcb547e80                                 
+  address                      integral           32    'h3ceda388                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    75775                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 77045: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 77045: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7915                                      
+  data                         integral           32    'h92ea661c                                 
+  address                      integral           32    'h3862c91a                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    77045                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 78295: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 78295: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7765                                      
+  data                         integral           32    'h7fafbd4                                  
+  address                      integral           32    'h2c33cb4b                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    78295                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 79575: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 79575: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7920                                      
+  data                         integral           32    'hb44dfd7b                                 
+  address                      integral           32    'haa0b116                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    79575                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 80835: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 80835: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7911                                      
+  data                         integral           32    'ha4ee34c2                                 
+  address                      integral           32    'h261c38bc                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    80835                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 82115: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 82115: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7841                                      
+  data                         integral           32    'he375a49a                                 
+  address                      integral           32    'h3ea6620c                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    82115                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 83435: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 83435: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7773                                      
+  data                         integral           32    'h6999519c                                 
+  address                      integral           32    'h3d19a9e3                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    83435                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 84775: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 84775: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7910                                      
+  data                         integral           32    'h19b1ee03                                 
+  address                      integral           32    'h3d4e5890                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    84775                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 85945: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 85945: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7799                                      
+  data                         integral           32    'he32c0b88                                 
+  address                      integral           32    'h236c25db                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    85945                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 87085: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 87085: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7948                                      
+  data                         integral           32    'h8572ad28                                 
+  address                      integral           32    'h69894d1                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    87085                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 88225: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 88225: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7850                                      
+  data                         integral           32    'h3922d42b                                 
+  address                      integral           32    'h2220e076                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    88225                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 89485: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 89485: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7843                                      
+  data                         integral           32    'h6b582012                                 
+  address                      integral           32    'h2cf7d4d0                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    89485                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 90705: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 90705: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7827                                      
+  data                         integral           32    'h8cb3b61e                                 
+  address                      integral           32    'h302aa5d2                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    90705                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 91995: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 91995: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7766                                      
+  data                         integral           32    'h42937c16                                 
+  address                      integral           32    'h1df95a8d                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    91995                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 93245: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 93245: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7772                                      
+  data                         integral           32    'h4f0683df                                 
+  address                      integral           32    'h1b496efc                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    93245                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 94445: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 94445: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7851                                      
+  data                         integral           32    'hc698613a                                 
+  address                      integral           32    'h30c2a904                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    94445                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 95775: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 95775: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7947                                      
+  data                         integral           32    'h2eb63f06                                 
+  address                      integral           32    'h15bd42e8                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    95775                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 97015: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 97015: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7792                                      
+  data                         integral           32    'h8d2e7bf4                                 
+  address                      integral           32    'h20a0fb52                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    97015                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 98305: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 98305: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7768                                      
+  data                         integral           32    'h25a3e47d                                 
+  address                      integral           32    'h16209765                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    98305                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 99585: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 99585: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7798                                      
+  data                         integral           32    'h6c4d440f                                 
+  address                      integral           32    'h1b219345                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    99585                                      
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 100805: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 100805: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7761                                      
+  data                         integral           32    'h7e172187                                 
+  address                      integral           32    'habe72c6                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    100805                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 102055: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 102055: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7795                                      
+  data                         integral           32    'h4f8b4ab9                                 
+  address                      integral           32    'h204470e5                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    102055                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 103325: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 103325: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7860                                      
+  data                         integral           32    'hd92315ff                                 
+  address                      integral           32    'h378bd5d3                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    103325                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 104625: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 104625: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7952                                      
+  data                         integral           32    'h26c9f178                                 
+  address                      integral           32    'h72f1760                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    104625                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 105825: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 105825: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7855                                      
+  data                         integral           32    'hc7d5bb3f                                 
+  address                      integral           32    'h16e3c96                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    105825                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 107065: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 107065: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7791                                      
+  data                         integral           32    'hb0ec1d31                                 
+  address                      integral           32    'h38bc0388                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    107065                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 108365: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 108365: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7790                                      
+  data                         integral           32    'h1a79c49b                                 
+  address                      integral           32    'h2865a718                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    108365                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 109595: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 109595: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7815                                      
+  data                         integral           32    'h47a78f9b                                 
+  address                      integral           32    'h75df366                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    109595                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 110835: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 110835: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7842                                      
+  data                         integral           32    'h71908ae9                                 
+  address                      integral           32    'h1eb21c6b                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    110835                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 112175: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 112175: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7889                                      
+  data                         integral           32    'hf76ee828                                 
+  address                      integral           32    'h20a22902                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    112175                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 113325: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 113325: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7822                                      
+  data                         integral           32    'hdf6a5642                                 
+  address                      integral           32    'h1fa0d75c                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    113325                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 114565: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 114565: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7796                                      
+  data                         integral           32    'h14c872b4                                 
+  address                      integral           32    'h16fb625c                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    114565                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 115715: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 115715: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7912                                      
+  data                         integral           32    'h29f52933                                 
+  address                      integral           32    'h3da49612                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    115715                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 116905: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 116905: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7865                                      
+  data                         integral           32    'h84143614                                 
+  address                      integral           32    'h1ca9a66f                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    116905                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 118215: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 118215: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7924                                      
+  data                         integral           32    'h9ac80bac                                 
+  address                      integral           32    'h38bd588f                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    118215                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 119465: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 119465: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7925                                      
+  data                         integral           32    'he212d940                                 
+  address                      integral           32    'h3f6cee49                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    119465                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 120785: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 120785: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7901                                      
+  data                         integral           32    'hfbf74f01                                 
+  address                      integral           32    'h32b25c6                                  
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    120785                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 121995: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 121995: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7926                                      
+  data                         integral           32    'h25526d93                                 
+  address                      integral           32    'h2cd27bd9                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    121995                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 123285: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 123285: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+---------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                      
+---------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7819                                      
+  data                         integral           32    'hc8186023                                 
+  address                      integral           32    'h1388739e                                 
+  request_type                 request_t          1     WRITE_REQ                                  
+  access_cache_type            access_cache_t     1     ICACHE_ACC                                 
+  begin_time                   time               64    123285                                     
+  depth                        int                32    'd2                                        
+  parent sequence (name)       string             16    random_write_seq                           
+  parent sequence (full name)  string             43    uvm_test_top.tb.vsequencer.random_write_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer           
+---------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 124465: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/virtual_seqs.sv(38) @ 124465: uvm_test_top.tb.vsequencer@@random_write_seq [random_write_seq] drop_objection
+UVM_INFO /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 124465: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 ---Test Summary---
 
 ---Final Test Status---
@@ -280,7 +1913,7 @@ Number of caught UVM_WARNING reports :    0
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :   26
+UVM_INFO :  218
 UVM_WARNING :    0
 UVM_ERROR :    0
 UVM_FATAL :    0
@@ -290,12 +1923,12 @@ UVM_FATAL :    0
 [TOP]     1
 [UVMTOP]     1
 [cache_scoreboard_c]     1
-[cpu_driver_c]    12
+[cpu_driver_c]   204
 [cpu_monitor_c]     4
-[illegalwrite]     1
-[illegalwrite_seq]     3
+[random_write]     1
+[random_write_seq]     3
 [system_bus_monitor_c]     1
-Simulation complete via $finish(1) at time 4795 NS + 50
+Simulation complete via $finish(1) at time 124465 NS + 50
 /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
 xcelium> exit
 
@@ -308,4 +1941,4 @@ coverage setup:
 coverage files:
   model(design data) :  ./cov_work/scope/icc_281e5ea7_2ec0c30c.ucm (reused)
   data               :  ./cov_work/scope/test/icc_281e5ea7_2ec0c30c.ucd
-TOOL:	xrun	22.03-s012: Exiting on Apr 23, 2024 at 21:52:43 CDT  (total: 00:00:02)
+TOOL:	xrun	22.03-s012: Exiting on Apr 23, 2024 at 22:06:42 CDT  (total: 00:00:02)

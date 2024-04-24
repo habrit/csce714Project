@@ -60,3 +60,5 @@
 ../uvm/read_miss_icache5.sv
 ./illegalwrite.sv
 ../uvm/illegalwrite.sv
+./random_write.sv
+../uvm/random_write.sv

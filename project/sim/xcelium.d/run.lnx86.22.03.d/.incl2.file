@@ -62,3 +62,9 @@
 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/illegalwrite.sv
 ../test/random_write.sv
 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/random_write.sv
+../test/write_miss.sv
+/home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/write_miss.sv
+../test/write_miss_replacement_shared.sv
+/home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/write_miss_replacement_shared.sv
+../test/shared_to_invalid.sv
+/home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/shared_to_invalid.sv

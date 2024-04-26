@@ -62,3 +62,9 @@
 ../uvm/illegalwrite.sv
 ./random_write.sv
 ../uvm/random_write.sv
+./write_miss.sv
+../uvm/write_miss.sv
+./write_miss_replacement_shared.sv
+../uvm/write_miss_replacement_shared.sv
+./shared_to_invalid.sv
+../uvm/shared_to_invalid.sv

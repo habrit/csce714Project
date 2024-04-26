@@ -10,3 +10,6 @@
 `include "read_miss_icache5.sv"
 `include "illegalwrite.sv"
 `include "random_write.sv"
+`include "write_miss.sv"
+`include "write_miss_replacement_shared.sv"
+`include "shared_to_invalid.sv"

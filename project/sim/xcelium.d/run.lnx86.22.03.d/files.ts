@@ -17,7 +17,7 @@
 1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/lru_block_lv1.sv
 1713922821 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/mesi_fsm_lv1.sv
 1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/main_func_lv1_il.sv
-1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/main_func_lv1_dl.sv
+1714095550 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/main_func_lv1_dl.sv
 1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/cache_controller_lv1_il.sv
 1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/cache_controller_lv1_dl.sv
 1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/cache_block_lv1_il.sv

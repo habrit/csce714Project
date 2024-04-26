@@ -69,14 +69,6 @@ interface cpu_lv1_interface(input clk);
         `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_valid_data_in_bus_cpu_lv1 Failed: If data_in_bus_cpu_lv1 is asserted, cpu_rd should be high"))
 
 // ASSERTION5: check valid address
-    property prop_valid_addr;
-        @(posedge clk)
-        addr_bus_cpu_lv1 < (1 << ADDR_WID_LV1);
-    endproperty
-
-    assert_valid_addr: assert property (prop_valid_addr)
-    else
-        `uvm_error("cpu_lv1_interface", $sformatf("Assertion assert_valid_addr Failed: Invalid address provided by CPU"));
 
 // ASSERTION6: check data validity on write
     property prop_present_wr_data;

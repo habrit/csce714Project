@@ -264,6 +264,7 @@ class cpu_monitor_c extends uvm_monitor;
             end
 
             packet.address = vi_cpu_lv1_if.addr_bus_cpu_lv1; 
+            cover_cpu_packet.sample();
 
             if(packet.address < 32'h4000_0000) begin
                 packet.addr_type = ICACHE;
@@ -325,6 +326,7 @@ class cpu_monitor_c extends uvm_monitor;
 
             @(posedge vi_cpu_lv1_if.data_in_bus_cpu_lv1 or posedge vi_cpu_lv1_if.cpu_wr_done)
             packet.dat = vi_cpu_lv1_if.data_bus_cpu_lv1;
+            cover_cpu_packet.sample();
 
             @(negedge vi_cpu_lv1_if.cpu_rd or negedge vi_cpu_lv1_if.cpu_wr)
             mon_out.write(packet);

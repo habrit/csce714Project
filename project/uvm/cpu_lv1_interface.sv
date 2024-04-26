@@ -68,6 +68,46 @@ interface cpu_lv1_interface(input clk);
     else 
         `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_valid_data_in_bus_cpu_lv1 Failed: If data_in_bus_cpu_lv1 is asserted, cpu_rd should be high"))
 
+// ASSERTION5: check valid address
+    property prop_valid_addr;
+        @(posedge clk)
+        addr_bus_cpu_lv1 < (1 << ADDR_WID_LV1);
+    endproperty
+
+    assert_valid_addr: assert property (prop_valid_addr)
+    else
+        `uvm_error("cpu_lv1_interface", $sformatf("Assertion assert_valid_addr Failed: Invalid address provided by CPU"));
+
+// ASSERTION6: check data validity on write
+    property prop_present_wr_data;
+        @(posedge clk)
+        (cpu_wr) |-> (data_in_bus_cpu_lv1);
+    endproperty
+
+    assert_present_wr_data: assert property (prop_present_wr_data)
+    else
+       `uvm_error("cpu_lv1_interface", $sformatf("Assertion assert_present_wr_data Failed: Write data not provided by CPU"));
+
+// ASSERTION7: check data validity on read
+    property prop_valid_rd_data;
+        @(posedge clk)
+        (cpu_rd) |-> (data_bus_cpu_lv1 !== 'z);
+    endproperty
+
+    assert_valid_rd_data: assert property (prop_valid_rd_data)
+    else
+        `uvm_error("cpu_lv1_interface", $sformatf("Assertion assert_valid_rd_data Failed: Read data not available on CPU-LV1 interface"));
+
+// ASSERTION8: write acknowledgement
+    property prop_wr_completion;
+        @(posedge clk)
+        (cpu_wr) |-> (cpu_wr_done);
+    endproperty
+
+    assert_wr_completion: assert property (prop_wr_completion)
+    else
+        `uvm_error("cpu_lv1_interface", $sformatf("Assertion assert_wr_completion Failed: Write operation not completed by LV1 cache"));
+
 
 
 endinterface

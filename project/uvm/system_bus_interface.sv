@@ -62,6 +62,50 @@ assert_data_in_bus_lv1_lv2: assert property (prop_sig1_before_sig2(lv2_rd,data_i
 	else
 	`uvm_error("system_bus_interface",$sformatf("Assertion assert_bus_rd Failed: bus_rdx not asserted before bus_rd goes high"))
 
+// ASSERTION4: lv2_wr_done should not be asserted without lv2_wr being asserted in the same cycle
+    assert_wr_done_without_wr: assert property (@(posedge clk)  !lv2_wr_done || lv2_wr)
+    else
+        `uvm_error("system_bus_interface", $sformatf("Assertion assert_wr_done_without_wr Failed: lv2_wr_done asserted without lv2_wr in the same cycle"))
+
+// ASSERTION5: lv2_wr should not be high with lv2_rd
+   assert_no_simultaneous_wr_rd: assert property (@(posedge clk)  !lv2_wr || !lv2_rd)
+   else
+       `uvm_error("system_bus_interface", $sformatf("Assertion assert_no_simultaneous_wr_rd Failed: lv2_wr should not be asserted with lv2_rd"))
+
+// ASSERTION6: lv2_wr_done should not remain asserted for more than one cycle after lv2_wr is deasserted
+    assert_wr_done_stays_high: assert property (@(posedge clk) !lv2_wr || lv2_wr_done)
+    else
+        `uvm_error("system_bus_interface", $sformatf("Assertion assert_wr_done_stays_high Failed: lv2_wr_done remains asserted after lv2_wr is deasserted"))
+
+// ASSERTION7: lv2_rd should not be asserted without a valid address on addr_bus_lv1_lv2
+    assert_rd_without_addr: assert property (@(posedge clk) !lv2_rd || ($countones(addr_bus_lv1_lv2) > 0))
+    else
+        `uvm_error("system_bus_interface",$sformatf("Assertion assert_rd_without_addr Failed: lv2_rd asserted without a valid address on addr_bus_lv1_lv2"))
+
+// ASSERTION8: If lv2_rd is asserted, data_in_bus_lv1_lv2 should also be asserted
+    assert_data_on_rd: assert property (@(posedge clk) !lv2_rd || data_in_bus_lv1_lv2)
+    else
+        `uvm_error("system_bus_interface", $sformatf("Assertion assert_data_on_rd Failed: lv2_rd asserted without data_in_bus_lv1_lv2"))
+
+// ASSERTION9: shared should not be asserted without invalidate
+    assert_shared_without_invalidate: assert property (@(posedge clk) !shared || invalidate)
+    else
+        `uvm_error("system_bus_interface", $sformatf("Assertion assert_shared_without_invalidate Failed: shared asserted without invalidate"))
+
+// ASSERTION10: If lv2_rd is asserted, bus_lv1_lv2_gnt_snoop should be asserted for at least one core
+    assert_rd_gnt_asserted: assert property (@(posedge clk) !lv2_rd || ($countones(bus_lv1_lv2_gnt_snoop) > 0))
+    else
+        `uvm_error("system_bus_interface", $sformatf("Assertion assert_rd_gnt_asserted Failed: lv2_rd asserted without bus_lv1_lv2_gnt_snoop"))
+
+// ASSERTION11: All cores should eventually release bus access after being granted
+    assert_release_after_gnt: assert property (@(posedge clk) ($countones(bus_lv1_lv2_gnt_proc) + $countones(bus_lv1_lv2_gnt_snoop)) == 0)
+    else
+        `uvm_error("system_bus_interface", $sformatf("Assertion assert_release_after_gnt Failed: Some cores did not release bus access after being granted"))
+
+// ASSERTION12: No more than one core should be granted bus access at a time
+    assert_single_core_access: assert property (@(posedge clk) ($countones(bus_lv1_lv2_gnt_proc) + $countones(bus_lv1_lv2_gnt_snoop)) <= 1)
+    else
+        `uvm_error("system_bus_interface", $sformatf("Assertion assert_single_core_access Failed: More than one core granted bus access at the same time"))
 
 
 endinterface

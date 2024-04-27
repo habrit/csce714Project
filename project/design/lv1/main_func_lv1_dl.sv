@@ -173,7 +173,7 @@ module main_func_lv1_dl #(
                     bus_lv1_lv2_req_proc_dl <= 1'b0;
                     lv2_rd                  <= 1'b0;
                     addr_bus_lv1_lv2_reg    <= 32'hz;
-                    bus_rd_reg              <= 1'b1;
+                    bus_rd_reg              <= 1'b0; //CHANGED
                     invalidate_reg          <= 1'b0;
                     bus_rdx_reg             <= 1'b0;
                 end
@@ -294,7 +294,7 @@ module main_func_lv1_dl #(
         if(blk_hit_snoop && (bus_lv1_lv2_gnt_proc != 1'b1)) begin
             if(invalidate && !invalidation_done) begin
                 shared_local              <= 1'b1;
-                `CACHE_CURRENT_MESI_SNOOP <= INVALID;
+                `CACHE_CURRENT_MESI_SNOOP <= updated_mesi_snoop;
                 invalidation_done         <= 1'b1;
             end
             else if(bus_rdx) begin

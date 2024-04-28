@@ -218,7 +218,7 @@ module main_func_lv1_dl #(
                 case (`CACHE_CURRENT_MESI_PROC)
                     SHARED: begin
                         if(bus_lv1_lv2_gnt_proc) begin
-                            invalidate_reg       <= 1'bz;
+                            invalidate_reg       <= 1'b1;
                             bus_rd_reg           <= 1'b0;
                             bus_rdx_reg          <= 1'b0;
                             addr_bus_lv1_lv2_reg <= {tag_proc,index_proc,2'b00};

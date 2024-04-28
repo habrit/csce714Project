@@ -111,10 +111,10 @@ else
         `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_valid_addr_check Failed: addr_bus_cpu_lv1 is not valid when cpu_rd/cpu_wr is asserted"))
 
 
-// ASSERTION9: write acknowledgement
+// ASSERTION9: write acknlwedgement time out
     property prop_wr_completion;
         @(posedge clk)
-        (cpu_wr) |-> (cpu_wr_done);
+        (cpu_wr) |-> ##[0:100] (cpu_wr_done);
     endproperty
 
     assert_wr_completion: assert property (prop_wr_completion)

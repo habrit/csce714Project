@@ -17,7 +17,7 @@
 1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/lru_block_lv1.sv
 1713922821 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/mesi_fsm_lv1.sv
 1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/main_func_lv1_il.sv
-1714289186 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/main_func_lv1_dl.sv
+1714333537 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/main_func_lv1_dl.sv
 1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/cache_controller_lv1_il.sv
 1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/cache_controller_lv1_dl.sv
 1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/lv1/cache_block_lv1_il.sv
@@ -29,8 +29,8 @@
 1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/design/cache_top.sv
 1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/gold/memory.sv
 1713134572 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/gold/lrs_arbiter.sv
-1714290000 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/cpu_lv1_interface.sv
-1714283724 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/system_bus_interface.sv
+1714291804 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/cpu_lv1_interface.sv
+1714315336 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/system_bus_interface.sv
 1713923472 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/cpu_pkg.sv
 1713925719 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/top.sv
 1713922300 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/uvm/cpu_mesi_lru_interface.sv

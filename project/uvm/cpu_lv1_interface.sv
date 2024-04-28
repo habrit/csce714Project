@@ -13,6 +13,7 @@ interface cpu_lv1_interface(input clk);
 
     parameter DATA_WID_LV1           = `DATA_WID_LV1       ;
     parameter ADDR_WID_LV1           = `ADDR_WID_LV1       ;
+    parameter TIME_OUT               = 110;
 
     reg   [DATA_WID_LV1 - 1   : 0] data_bus_cpu_lv1_reg    ;
 
@@ -37,60 +38,80 @@ interface cpu_lv1_interface(input clk);
         `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_simult_cpu_wr_rd Failed: cpu_wr and cpu_rd asserted simultaneously"))
 
 //TODO: Add assertions at this interface
+//ASSERTION 2: Writes to Instruction Cache is Invalid. If write requests are asserted, then the address can never be less than 32'h 4000_0000.
 
-//ASSERTION2: Address should not be invalid when rd/wr is processed. 
-    property valid_addr_wr_rd;
+property prop_write_instn_cache; 
+     @(posedge clk)
+         (cpu_wr == 1) |-> ((addr_bus_cpu_lv1 >= 32'h 4000_0000) && cpu_wr);  
+endproperty 
+assert_write_instn_cache : assert property (prop_write_instn_cache)
+else
+    `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_write_instn_cache Failed: An attempt to write into the instruction cache was done"))
+
+
+//ASSERTION 3: write done signal should be deasserted 1 clock cycle after write signal is deasserted. 
+property prop_write_deassert;
+   @(posedge clk)
+         $fell(cpu_wr) |-> ##[0:$] $fell(cpu_wr_done);
+endproperty
+assert_prop_write_deassert : assert property (prop_write_deassert) 
+else
+    `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_prop_write_deassert Failed: Write done signal is still asserted even after write signal is deasserted in the previous clock"))
+
+
+//ASSERTION 4: Write signal should be deasserted after write to cache is completed. 
+property prop_write_deassert_1;
+  @(posedge clk)
+     $rose(cpu_wr_done) |=> $fell(cpu_wr);
+endproperty
+assert_prop_write_deassert_1 : assert property (prop_write_deassert_1)
+else
+    `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_prop_write_deassert_1 Failed: Write signal continues to be asserted"))
+
+
+//ASSERTION 5: data in bus should not have unknowns (X) while data_in_bus is asserted.
+property prop_data_in_bus_is_real_data;
         @(posedge clk)
-          (cpu_rd || cpu_wr) |-> (addr_bus_cpu_lv1[31:0] !== 32'bx);
+          $rose(data_in_bus_cpu_lv1) |->  (data_in_bus_cpu_lv1 == (^data_bus_cpu_lv1 !== 1'bx));
+endproperty
+assert_data_in_bus_is_real_data: assert property (prop_data_in_bus_is_real_data)
+else
+        `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_data_in_bus_is_real_data Failed: data in bus has unknowns while data_in_bus asserted"))
+
+
+//ASSERTION 6: read level1 cache hit (cpu_rd should be followed by data_in_bus_cpu_lv1 assertion (next cycle to any number of cycles), and then both the signals should be deasserted in consecutive cycles)
+    property prop_cpu_rd_data_in_bus_handshake;
+        @(posedge clk)
+          cpu_rd |-> ##[1:TIME_OUT] data_in_bus_cpu_lv1 ##1 (!cpu_rd) ##1 (!data_in_bus_cpu_lv1);
     endproperty
 
-    assert_valid_addr_wr_rd: assert property (valid_addr_wr_rd)
-    else 
-        `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_valid_addr_wr_rd Failed: Address is invalid when rd/wr is processed"))
-
-//ASSERTION3: cpu_rd should be followed by data_in_bus_cpu_lv1 and both should be deasserted according to the HAS document. 
-    property valid_rd_transaction;
-        @(posedge clk)
-            cpu_rd |=> ##[0:$] data_in_bus_cpu_lv1 ##1 !cpu_rd ##1 !data_in_bus_cpu_lv1;
-    endproperty
-
-    assert_valid_rd_transaction: assert property (valid_rd_transaction)
-    else 
-        `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_valid_rd_transaction Failed: cpu_rd should be followed by data_in_bus_cpu_lv1 and both should be deasserted according to the HAS document"))
-
-//ASSERTION4: If data_in_bus_cpu_lv1 is asserted, cpu_rd should be high
-    property valid_data_in_bus_cpu_lv1;
-        @(posedge clk)
-            $rose(data_in_bus_cpu_lv1) |-> cpu_rd;
-    endproperty
-
-    assert_valid_data_in_bus_cpu_lv1: assert property (valid_data_in_bus_cpu_lv1)
-    else 
-        `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_valid_data_in_bus_cpu_lv1 Failed: If data_in_bus_cpu_lv1 is asserted, cpu_rd should be high"))
-
-// ASSERTION5: check valid address
-
-// ASSERTION6: check data validity on write
-    property prop_present_wr_data;
-        @(posedge clk)
-        (cpu_wr) |-> (data_in_bus_cpu_lv1);
-    endproperty
-
-    assert_present_wr_data: assert property (prop_present_wr_data)
+    assert_cpu_rd_data_in_bus_handshake: assert property (prop_cpu_rd_data_in_bus_handshake)
     else
-       `uvm_error("cpu_lv1_interface", $sformatf("Assertion assert_present_wr_data Failed: Write data not provided by CPU"));
+        `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_cpu_rd_data_in_bus_handshake Failed: cpu_rd and data_in_bus_cpu_lv1 handshake failed"))
 
-// ASSERTION7: check data validity on read
-    property prop_valid_rd_data;
+
+//ASSERTION 7: write level1 cache hit (when cpu_wr is asserted, valid data should be available in data_bus_cpu_lv1 (at the same cycle)).
+    property prop_cpu_wr_data_bus_cpu_lv1;
         @(posedge clk)
-        (cpu_rd) |-> (data_bus_cpu_lv1 !== 'z);
+          cpu_wr |-> (^data_bus_cpu_lv1 !== 1'bx);
     endproperty
 
-    assert_valid_rd_data: assert property (prop_valid_rd_data)
+    assert_cpu_wr_data_bus_cpu_lv1: assert property (prop_cpu_wr_data_bus_cpu_lv1)
     else
-        `uvm_error("cpu_lv1_interface", $sformatf("Assertion assert_valid_rd_data Failed: Read data not available on CPU-LV1 interface"));
+        `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_cpu_wr_data_bus_cpu_lv1 Failed: When write request is asserted, data bus has insignificant data"))
 
-// ASSERTION8: write acknowledgement
+//ASSERTION 8: addr_bus_cpu_lv1 should be valid when cpu_rd/cpu_wr request is asserted
+    property prop_valid_addr_check;
+        @(posedge clk)
+          (cpu_rd||cpu_wr) |-> (^addr_bus_cpu_lv1 !== 1'bx);
+    endproperty
+
+    assert_valid_addr_check: assert property (prop_valid_addr_check)
+    else
+        `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_valid_addr_check Failed: addr_bus_cpu_lv1 is not valid when cpu_rd/cpu_wr is asserted"))
+
+
+// ASSERTION9: write acknowledgement
     property prop_wr_completion;
         @(posedge clk)
         (cpu_wr) |-> (cpu_wr_done);
@@ -102,4 +123,6 @@ interface cpu_lv1_interface(input clk);
 
 
 
+
 endinterface
+

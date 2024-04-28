@@ -13,3 +13,6 @@
 `include "write_miss.sv"
 `include "write_miss_replacement_shared.sv"
 `include "shared_to_invalid.sv"
+`include "read_hit_dcache.sv"
+`include "read_write_same_proc.sv"
+`include "read_two_procs_force_write.sv"

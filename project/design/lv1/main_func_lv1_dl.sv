@@ -134,7 +134,7 @@ module main_func_lv1_dl #(
         data_in_bus_lv1_lv2_reg <= 1'bz;
         invalidate_reg          <= 1'bz;
         bus_rd_reg              <= 1'bz;
-        bus_rdx_reg             <= 1'b0;
+        bus_rdx_reg             <= 1'bz; //CHANGED
         invalidation_done       <= 1'b0;
         bus_lv1_lv2_req_proc_dl <= 1'b0;
         bus_lv1_lv2_req_snoop   <= 1'b0;
@@ -218,7 +218,7 @@ module main_func_lv1_dl #(
                 case (`CACHE_CURRENT_MESI_PROC)
                     SHARED: begin
                         if(bus_lv1_lv2_gnt_proc) begin
-                            invalidate_reg       <= 1'b1; //CHANGED BUG6
+                            invalidate_reg       <= 1'b1; //CHANGED BUG 6
                             bus_rd_reg           <= 1'b0;
                             bus_rdx_reg          <= 1'b0;
                             addr_bus_lv1_lv2_reg <= {tag_proc,index_proc,2'b00};
@@ -256,7 +256,7 @@ module main_func_lv1_dl #(
                         `CACHE_CURRENT_TAG_PROC                 <= tag_proc;
                         bus_lv1_lv2_req_proc_dl                 <= 1'b0;
                         lv2_rd                                  <= 1'b0;
-                        bus_rdx_reg                             <= 1'b1;
+                        bus_rdx_reg                             <= 1'b0; //BUG SEVEN
                         bus_rd_reg                              <= 1'b0;
                         invalidate_reg                          <= 1'b0;
                         addr_bus_lv1_lv2_reg                    <= 32'hz;

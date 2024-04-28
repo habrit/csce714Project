@@ -41,9 +41,6 @@ rand int cpu_port;
     endfunction : new
 
     virtual task body();
-//  repeat(4)
-// begin
-   //cpu_port = $urandom_range(0,3);
 `uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], {request_type == READ_REQ; address == 32'h4000_0000; })
 `uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], {request_type == READ_REQ; address == 32'h4011_0000; })
 `uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], {request_type == READ_REQ; address == 32'h4022_0000;})
@@ -52,8 +49,6 @@ rand int cpu_port;
 `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], {request_type == WRITE_REQ; address == 32'h4044_0000; })
    `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], {request_type == WRITE_REQ; address == 32'h4011_0000; })
    `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], {request_type == WRITE_REQ; address == 32'h4022_0000; })
- //  `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], {request_type == WRITE_REQ; address == 32'h40_0000; })
-//  end
     endtask
 endclass:write_miss_replacement_shared_seq
 

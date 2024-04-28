@@ -1,5 +1,5 @@
 xrun: 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
-TOOL:	xrun	22.03-s012: Started on Apr 28, 2024 at 17:40:36 CDT
+TOOL:	xrun	22.03-s012: Started on Apr 28, 2024 at 18:23:19 CDT
 irun
 	-f sim_cmd_line.f
 		+access+rwc
@@ -10,7 +10,7 @@ irun
 		-covfile ./cov_conf.ccf
 		-uvmhome /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv
 		+UVM_VERBOSITY=UVM_LOW
-	+UVM_TESTNAME=write_miss
+	+UVM_TESTNAME=ex_to_invalid
 
    User defined plus("+") options:
 	+UVM_VERBOSITY=UVM_LOW
@@ -43,12 +43,12 @@ CDNS-UVM-1.1d (22.03-s012)
       (Specify +UVM_NO_RELNOTES to turn off this notice)
 
 UVM_INFO ../uvm/top.sv(193) @ 0: reporter [TOP] Starting UVM test
-UVM_INFO @ 0: reporter [RNTST] Running test write_miss...
+UVM_INFO @ 0: reporter [RNTST] Running test ex_to_invalid...
 UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
 ---------------------------------------------------------------------
 Name                        Type                     Size  Value     
 ---------------------------------------------------------------------
-uvm_test_top                write_miss               -     @2896     
+uvm_test_top                ex_to_invalid            -     @2896     
   tb                        env                      -     @3005     
     cpu[0]                  cpu_agent_c              -     @3037     
       driver                cpu_driver_c             -     @4857     
@@ -171,7 +171,7 @@ uvm_test_top                write_miss               -     @2896
     recording_detail        integral                 32    'd1       
 ---------------------------------------------------------------------
 
-UVM_INFO ../test/write_miss.sv(26) @ 0: uvm_test_top [write_miss] Executing write_miss test
+UVM_INFO ../test/ex_to_invalid.sv(26) @ 0: uvm_test_top [ex_to_invalid] Executing ex_to_invalid test
 SDI/Verilog Transaction Recording Facility Version 22.03-s012
 UVM_INFO ../uvm/system_bus_monitor_c.sv(240) @ 0: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] RUN Phase
 UVM_INFO ../uvm/cache_scoreboard_c.sv(66) @ 0: uvm_test_top.tb.sb [cache_scoreboard_c] RUN Phase
@@ -183,56 +183,54 @@ UVM_INFO ../uvm/cpu_monitor_c.sv(251) @ 0: uvm_test_top.tb.cpu[1].monitor [cpu_m
 UVM_INFO ../uvm/cpu_driver_c.sv(48) @ 0: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] RUN Phase
 UVM_INFO ../uvm/cpu_monitor_c.sv(251) @ 0: uvm_test_top.tb.cpu[0].monitor [cpu_monitor_c] RUN Phase
 UVM_INFO ../uvm/cpu_driver_c.sv(48) @ 0: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] RUN Phase
-UVM_INFO ../uvm/virtual_seqs.sv(30) @ 0: uvm_test_top.tb.vsequencer@@write_miss_seq [write_miss_seq] raise_objection
-UVM_INFO ../uvm/virtual_seqs.sv(31) @ 0: uvm_test_top.tb.vsequencer@@write_miss_seq [write_miss_seq] Main Processor=1	SP1=3	SP2=0
-UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 0: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
--------------------------------------------------------------------------------------------------
-Name                           Type               Size  Value                                    
--------------------------------------------------------------------------------------------------
-trans                          cpu_transaction_c  -     @8050                                    
-  data                         integral           32    'h56e2143a                               
-  address                      integral           32    'he39f1a46                               
-  request_type                 request_t          1     WRITE_REQ                                
-  access_cache_type            access_cache_t     1     DCACHE_ACC                               
-  begin_time                   time               64    0                                        
-  depth                        int                32    'd2                                      
-  parent sequence (name)       string             14    write_miss_seq                           
-  parent sequence (full name)  string             41    uvm_test_top.tb.vsequencer.write_miss_seq
-  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer         
--------------------------------------------------------------------------------------------------
+UVM_INFO ../uvm/virtual_seqs.sv(30) @ 0: uvm_test_top.tb.vsequencer@@ex_to_invalid_seq [ex_to_invalid_seq] raise_objection
+UVM_INFO ../uvm/virtual_seqs.sv(31) @ 0: uvm_test_top.tb.vsequencer@@ex_to_invalid_seq [ex_to_invalid_seq] Main Processor=0	SP1=1	SP2=2
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 0: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+----------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                       
+----------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @8050                                       
+  data                         integral           32    'h5555aaaa                                  
+  address                      integral           32    'h5004aaac                                  
+  request_type                 request_t          1     READ_REQ                                    
+  access_cache_type            access_cache_t     1     DCACHE_ACC                                  
+  begin_time                   time               64    0                                           
+  depth                        int                32    'd2                                         
+  parent sequence (name)       string             17    ex_to_invalid_seq                           
+  parent sequence (full name)  string             44    uvm_test_top.tb.vsequencer.ex_to_invalid_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer            
+----------------------------------------------------------------------------------------------------
 
-UVM_INFO ../uvm/system_bus_monitor_c.sv(249) @ 65: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet creation triggered
-UVM_INFO ../uvm/system_bus_monitor_c.sv(404) @ 135: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] BUS_RDX successful
-UVM_INFO ../uvm/system_bus_monitor_c.sv(437) @ 145: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet to be written
-xmsim: *E,ASRTST (../uvm/system_bus_interface.sv,359): (time 155 NS) Assertion top.inst_system_bus_if.assert_bus_rd_rdx_with_lv2_rd has failed 
-UVM_ERROR ../uvm/system_bus_interface.sv(361) @ 155: reporter [system_bus_interface] Assertion assert_bus_rd_rdx_with_lv2_rd Failed: bus_rd/bus_rdx asserted without a lv2_rd
-UVM_INFO ../uvm/cache_scoreboard_c.sv(523) @ 165: uvm_test_top.tb.sb [cache_scoreboard_c] cpu_mon_packet from CPU1:
+UVM_INFO ../uvm/system_bus_monitor_c.sv(249) @ 55: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet creation triggered
+UVM_INFO ../uvm/system_bus_monitor_c.sv(359) @ 125: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Bus read successful
+UVM_INFO ../uvm/system_bus_monitor_c.sv(437) @ 135: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet to be written
+UVM_INFO ../uvm/cache_scoreboard_c.sv(531) @ 155: uvm_test_top.tb.sb [cache_scoreboard_c] cpu_mon_packet from CPU2:
 --------------------------------------------------
 Name            Type              Size  Value     
 --------------------------------------------------
 packet          cpu_mon_packet_c  -     @7964     
-  dat           integral          32    'h56e2143a
-  address       integral          32    'he39f1a46
+  dat           integral          32    'h5555aaaa
+  address       integral          32    'h5004aaac
   num_cycles    integral          32    'h0       
   illegal       integral          1     'h0       
-  request_type  request_t         1     WRITE_REQ 
+  request_type  request_t         1     READ_REQ  
   addr_type     addr_t            32    DCACHE    
 --------------------------------------------------
 
-UVM_INFO ../uvm/cache_scoreboard_c.sv(274) @ 165: uvm_test_top.tb.sb [cache_scoreboard_c] CHECK_DATA CPU1
-WRITE Request
-UVM_INFO ../uvm/cache_scoreboard_c.sv(430) @ 165: uvm_test_top.tb.sb [cache_scoreboard_c] System bus activity matched for this request
-UVM_INFO ../uvm/cache_scoreboard_c.sv(431) @ 165: uvm_test_top.tb.sb [cache_scoreboard_c] Expected & Received SBUS Packet 
+UVM_INFO ../uvm/cache_scoreboard_c.sv(293) @ 155: uvm_test_top.tb.sb [cache_scoreboard_c] CHECK_DATA CPU2
+UVM_INFO ../uvm/cache_scoreboard_c.sv(295) @ 155: uvm_test_top.tb.sb [cache_scoreboard_c] Data match!!! expected = 5555aaaa received = 5555aaaa
+UVM_INFO ../uvm/cache_scoreboard_c.sv(430) @ 155: uvm_test_top.tb.sb [cache_scoreboard_c] System bus activity matched for this request
+UVM_INFO ../uvm/cache_scoreboard_c.sv(431) @ 155: uvm_test_top.tb.sb [cache_scoreboard_c] Expected & Received SBUS Packet 
 -------------------------------------------------------------
 Name                         Type            Size  Value     
 -------------------------------------------------------------
 s_packet                     sbus_packet_c   -     @7971     
-  bus_req_type               bus_req_t       32    BUS_RDX   
-  bus_req_proc_num           bus_req_proc_t  32    REQ_PROC1 
-  req_address                integral        32    'he39f1a44
+  bus_req_type               bus_req_t       32    BUS_RD    
+  bus_req_proc_num           bus_req_proc_t  32    REQ_PROC2 
+  req_address                integral        32    'h5004aaac
   bus_req_snoop              integral        4     'h0       
   req_serviced_by            serv_by_t       32    SERV_L2   
-  rd_data                    integral        32    'haaaa5555
+  rd_data                    integral        32    'h5555aaaa
   wr_data_snoop              integral        32    'h0       
   snoop_wr_req_flag          integral        1     'h0       
   cp_in_cache                integral        1     'h0       
@@ -243,15 +241,152 @@ s_packet                     sbus_packet_c   -     @7971
   proc_evict_dirty_blk_flag  integral        1     'h0       
 -------------------------------------------------------------
 
-UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 185: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
-UVM_INFO ../uvm/virtual_seqs.sv(38) @ 185: uvm_test_top.tb.vsequencer@@write_miss_seq [write_miss_seq] drop_objection
-UVM_INFO /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 185: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 175: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 175: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+----------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                       
+----------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7878                                       
+  data                         integral           32    'h1c385574                                  
+  address                      integral           32    'h5004aaac                                  
+  request_type                 request_t          1     WRITE_REQ                                   
+  access_cache_type            access_cache_t     1     DCACHE_ACC                                  
+  begin_time                   time               64    175                                         
+  depth                        int                32    'd2                                         
+  parent sequence (name)       string             17    ex_to_invalid_seq                           
+  parent sequence (full name)  string             44    uvm_test_top.tb.vsequencer.ex_to_invalid_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer            
+----------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/system_bus_monitor_c.sv(249) @ 405: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet creation triggered
+UVM_INFO ../uvm/system_bus_monitor_c.sv(404) @ 445: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] BUS_RDX successful
+UVM_INFO ../uvm/system_bus_monitor_c.sv(437) @ 455: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet to be written
+UVM_INFO ../uvm/cache_scoreboard_c.sv(539) @ 475: uvm_test_top.tb.sb [cache_scoreboard_c] cpu_mon_packet from CPU3:
+--------------------------------------------------
+Name            Type              Size  Value     
+--------------------------------------------------
+packet          cpu_mon_packet_c  -     @7866     
+  dat           integral          32    'h1c385574
+  address       integral          32    'h5004aaac
+  num_cycles    integral          32    'h0       
+  illegal       integral          1     'h0       
+  request_type  request_t         1     WRITE_REQ 
+  addr_type     addr_t            32    DCACHE    
+--------------------------------------------------
+
+UVM_INFO ../uvm/cache_scoreboard_c.sv(274) @ 475: uvm_test_top.tb.sb [cache_scoreboard_c] CHECK_DATA CPU3
+WRITE Request
+UVM_INFO @ 475: reporter [MISCMP] Miscompare for expected.cp_in_cache: lhs = 'h1 : rhs = 'h0
+UVM_INFO @ 475: reporter [MISCMP] 1 Miscompare(s) for object s_packet@7934 vs. expected@7858
+UVM_ERROR ../uvm/cache_scoreboard_c.sv(433) @ 475: uvm_test_top.tb.sb [cache_scoreboard_c] System bus activity MISMATCH!!!
+UVM_INFO ../uvm/cache_scoreboard_c.sv(434) @ 475: uvm_test_top.tb.sb [cache_scoreboard_c] Expected SBUS Packet 
+-------------------------------------------------------------
+Name                         Type            Size  Value     
+-------------------------------------------------------------
+expected                     sbus_packet_c   -     @7858     
+  bus_req_type               bus_req_t       32    BUS_RDX   
+  bus_req_proc_num           bus_req_proc_t  32    REQ_PROC3 
+  req_address                integral        32    'h5004aaac
+  bus_req_snoop              integral        4     'h0       
+  req_serviced_by            serv_by_t       32    SERV_L2   
+  rd_data                    integral        32    'h5555aaaa
+  wr_data_snoop              integral        32    'h0       
+  snoop_wr_req_flag          integral        1     'h0       
+  cp_in_cache                integral        1     'h1       
+  shared                     integral        1     'h0       
+  service_time               integral        32    'h0       
+  proc_evict_dirty_blk_addr  integral        32    'h0       
+  proc_evict_dirty_blk_data  integral        32    'h0       
+  proc_evict_dirty_blk_flag  integral        1     'h0       
+-------------------------------------------------------------
+
+UVM_INFO ../uvm/cache_scoreboard_c.sv(435) @ 475: uvm_test_top.tb.sb [cache_scoreboard_c] Received SBUS Packet 
+-------------------------------------------------------------
+Name                         Type            Size  Value     
+-------------------------------------------------------------
+s_packet                     sbus_packet_c   -     @7934     
+  bus_req_type               bus_req_t       32    BUS_RDX   
+  bus_req_proc_num           bus_req_proc_t  32    REQ_PROC3 
+  req_address                integral        32    'h5004aaac
+  bus_req_snoop              integral        4     'h0       
+  req_serviced_by            serv_by_t       32    SERV_L2   
+  rd_data                    integral        32    'h5555aaaa
+  wr_data_snoop              integral        32    'h0       
+  snoop_wr_req_flag          integral        1     'h0       
+  cp_in_cache                integral        1     'h0       
+  shared                     integral        1     'h0       
+  service_time               integral        32    'h0       
+  proc_evict_dirty_blk_addr  integral        32    'h0       
+  proc_evict_dirty_blk_data  integral        32    'h0       
+  proc_evict_dirty_blk_flag  integral        1     'h0       
+-------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 495: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 495: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
+----------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                       
+----------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7931                                       
+  data                         integral           32    'h5555aaaa                                  
+  address                      integral           32    'h5004aaac                                  
+  request_type                 request_t          1     READ_REQ                                    
+  access_cache_type            access_cache_t     1     DCACHE_ACC                                  
+  begin_time                   time               64    495                                         
+  depth                        int                32    'd2                                         
+  parent sequence (name)       string             17    ex_to_invalid_seq                           
+  parent sequence (full name)  string             44    uvm_test_top.tb.vsequencer.ex_to_invalid_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer            
+----------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/system_bus_monitor_c.sv(249) @ 645: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet creation triggered
+UVM_INFO ../uvm/system_bus_monitor_c.sv(359) @ 705: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Bus read successful
+UVM_INFO ../uvm/system_bus_monitor_c.sv(437) @ 715: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet to be written
+UVM_INFO ../uvm/cache_scoreboard_c.sv(531) @ 735: uvm_test_top.tb.sb [cache_scoreboard_c] cpu_mon_packet from CPU2:
+--------------------------------------------------
+Name            Type              Size  Value     
+--------------------------------------------------
+packet          cpu_mon_packet_c  -     @7832     
+  dat           integral          32    'h1c385574
+  address       integral          32    'h5004aaac
+  num_cycles    integral          32    'h0       
+  illegal       integral          1     'h0       
+  request_type  request_t         1     READ_REQ  
+  addr_type     addr_t            32    DCACHE    
+--------------------------------------------------
+
+UVM_INFO ../uvm/cache_scoreboard_c.sv(293) @ 735: uvm_test_top.tb.sb [cache_scoreboard_c] CHECK_DATA CPU2
+UVM_INFO ../uvm/cache_scoreboard_c.sv(295) @ 735: uvm_test_top.tb.sb [cache_scoreboard_c] Data match!!! expected = 1c385574 received = 1c385574
+UVM_INFO ../uvm/cache_scoreboard_c.sv(430) @ 735: uvm_test_top.tb.sb [cache_scoreboard_c] System bus activity matched for this request
+UVM_INFO ../uvm/cache_scoreboard_c.sv(431) @ 735: uvm_test_top.tb.sb [cache_scoreboard_c] Expected & Received SBUS Packet 
+--------------------------------------------------------------
+Name                         Type            Size  Value      
+--------------------------------------------------------------
+s_packet                     sbus_packet_c   -     @7979      
+  bus_req_type               bus_req_t       32    BUS_RD     
+  bus_req_proc_num           bus_req_proc_t  32    REQ_PROC2  
+  req_address                integral        32    'h5004aaac 
+  bus_req_snoop              integral        4     'h8        
+  req_serviced_by            serv_by_t       32    SERV_SNOOP3
+  rd_data                    integral        32    'h1c385574 
+  wr_data_snoop              integral        32    'h1c385574 
+  snoop_wr_req_flag          integral        1     'h1        
+  cp_in_cache                integral        1     'h1        
+  shared                     integral        1     'h1        
+  service_time               integral        32    'h0        
+  proc_evict_dirty_blk_addr  integral        32    'h0        
+  proc_evict_dirty_blk_data  integral        32    'h0        
+  proc_evict_dirty_blk_flag  integral        1     'h0        
+--------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 755: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/virtual_seqs.sv(38) @ 755: uvm_test_top.tb.vsequencer@@ex_to_invalid_seq [ex_to_invalid_seq] drop_objection
+UVM_INFO /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 755: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 ---Test Summary---
 
 ---Final Test Status---
 
 Test FAIL
-xmsim: *E,ERRSEV (../test/base_test.sv,65): (time 185 NS).
+xmsim: *E,ERRSEV (../test/base_test.sv,65): (time 755 NS).
 top.base_test.report_phase
  _____ _    ___ _
 |  ___/ \  |_ _| |
@@ -273,23 +408,23 @@ Number of caught UVM_WARNING reports :    0
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :   27
+UVM_INFO :   49
 UVM_WARNING :    0
 UVM_ERROR :    1
 UVM_FATAL :    0
 ** Report counts by id
+[MISCMP]     2
 [RNTST]     1
 [TEST_DONE]     1
 [TOP]     1
 [UVMTOP]     1
-[cache_scoreboard_c]     5
-[cpu_driver_c]     6
+[cache_scoreboard_c]    16
+[cpu_driver_c]    10
 [cpu_monitor_c]     4
-[system_bus_interface]     1
-[system_bus_monitor_c]     4
-[write_miss]     1
-[write_miss_seq]     3
-Simulation complete via $finish(1) at time 185 NS + 50
+[ex_to_invalid]     1
+[ex_to_invalid_seq]     3
+[system_bus_monitor_c]    10
+Simulation complete via $finish(1) at time 755 NS + 50
 /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
 xcelium> exit
 
@@ -302,4 +437,4 @@ coverage setup:
 coverage files:
   model(design data) :  ./cov_work/scope/icc_281e5ea7_727d9be2.ucm (reused)
   data               :  ./cov_work/scope/test/icc_281e5ea7_727d9be2.ucd
-TOOL:	xrun	22.03-s012: Exiting on Apr 28, 2024 at 17:40:37 CDT  (total: 00:00:01)
+TOOL:	xrun	22.03-s012: Exiting on Apr 28, 2024 at 18:23:20 CDT  (total: 00:00:01)

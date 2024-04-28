@@ -134,7 +134,7 @@ module main_func_lv1_dl #(
         data_in_bus_lv1_lv2_reg <= 1'bz;
         invalidate_reg          <= 1'bz;
         bus_rd_reg              <= 1'bz;
-        bus_rdx_reg             <= 1'bz; //CHANGED
+        bus_rdx_reg             <= 1'b0;
         invalidation_done       <= 1'b0;
         bus_lv1_lv2_req_proc_dl <= 1'b0;
         bus_lv1_lv2_req_snoop   <= 1'b0;

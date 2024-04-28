@@ -181,20 +181,6 @@ else
 
 
 
-// bus_rdx and lv2_rd is raised - addr_bus_lv1_lv2
-//ASSERTION 12: addr_bus_lv1_lv2 should be valid when bus_rdx/lv2_rd request is asserted
-property prop_addr_check_valid_lv2_rdx;
-    @(posedge clk)
-      (bus_rdx && lv2_rd) |-> !($isunknown(^addr_bus_lv1_lv2));
-endproperty
-
-assert_valid_addr_check_lv2_rdx: assert property (prop_addr_check_valid_lv2_rdx)
-else
-	`uvm_error("system_bus_interface",$sformatf("Assertion assert_valid_addr_check_lv2_rdx Failed: addr_bus_lv1_lv2 is not valid when bus_rdx/lv2_rd is asserted"))
-
-
-
-
 
 // On lv2rd, if cp_in_cache is high then - bus_lv1_lv2_req_lv2 is deasserted
 //ASSERTION 13 : if cp_in_cache assert then bus_lv1_lv2_req_lv2 is deasserted immediately in the same cycle

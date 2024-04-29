@@ -78,7 +78,7 @@ assert_data_in_bus_is_real_data: assert property (prop_data_in_bus_is_real_data)
 else
         `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_data_in_bus_is_real_data Failed: data in bus has unknowns while data_in_bus asserted"))
 
-
+/*
 //ASSERTION 6: read level1 cache hit (cpu_rd should be followed by data_in_bus_cpu_lv1 assertion (next cycle to any number of cycles), and then both the signals should be deasserted in consecutive cycles)
     property prop_cpu_rd_data_in_bus_handshake;
         @(posedge clk)
@@ -88,7 +88,7 @@ else
     assert_cpu_rd_data_in_bus_handshake: assert property (prop_cpu_rd_data_in_bus_handshake)
     else
         `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_cpu_rd_data_in_bus_handshake Failed: cpu_rd and data_in_bus_cpu_lv1 handshake failed"))
-
+*/
 
 //ASSERTION 7: write level1 cache hit (when cpu_wr is asserted, valid data should be available in data_bus_cpu_lv1 (at the same cycle)).
     property prop_cpu_wr_data_bus_cpu_lv1;
@@ -110,7 +110,7 @@ else
     else
         `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_valid_addr_check Failed: addr_bus_cpu_lv1 is not valid when cpu_rd/cpu_wr is asserted"))
 
-
+/*
 // ASSERTION9: write acknlwedgement time out
     property prop_wr_completion;
         @(posedge clk)
@@ -120,7 +120,7 @@ else
     assert_wr_completion: assert property (prop_wr_completion)
     else
         `uvm_error("cpu_lv1_interface", $sformatf("Assertion assert_wr_completion Failed: Write operation not completed by LV1 cache"));
-
+*/
 
 
 

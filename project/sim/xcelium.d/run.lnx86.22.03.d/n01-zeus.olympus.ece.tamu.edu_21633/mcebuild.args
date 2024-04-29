@@ -1,0 +1,17 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-timescale
+1ns/1ns
+-DEFINE
+USE_PARAMETERIZED_WRAPPER
+-MESSAGES
+-RUNMODE
+-uvm_home
+/opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv/sv
+-INCDIR
+/opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/additions/sv
+-load_parsed_libraries
+-default_work_lib
+worklib

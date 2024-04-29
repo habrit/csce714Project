@@ -1,0 +1,7 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-f
+sim_cmd_line.f
++UVM_TESTNAME=multi_proc_rd_wr_rd

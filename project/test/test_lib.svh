@@ -24,3 +24,8 @@
 `include "ex_to_shared.sv"
 `include "ex_to_mod.sv"
 `include "ex_to_invalid.sv"
+`include "multi_proc_rd_wr_rd.sv"
+`include "read_miss_cp_modified.sv"
+`include "mesi_test.sv"
+`include "write_miss_cp_cache.sv"
+`include "write_miss_replacement.sv"

@@ -90,3 +90,13 @@
 ../uvm/ex_to_mod.sv
 ./ex_to_invalid.sv
 ../uvm/ex_to_invalid.sv
+./multi_proc_rd_wr_rd.sv
+../uvm/multi_proc_rd_wr_rd.sv
+./read_miss_cp_modified.sv
+../uvm/read_miss_cp_modified.sv
+./mesi_test.sv
+../uvm/mesi_test.sv
+./write_miss_cp_cache.sv
+../uvm/write_miss_cp_cache.sv
+./write_miss_replacement.sv
+../uvm/write_miss_replacement.sv

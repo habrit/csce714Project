@@ -90,3 +90,13 @@
 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/ex_to_mod.sv
 ../test/ex_to_invalid.sv
 /home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/ex_to_invalid.sv
+../test/multi_proc_rd_wr_rd.sv
+/home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/multi_proc_rd_wr_rd.sv
+../test/read_miss_cp_modified.sv
+/home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/read_miss_cp_modified.sv
+../test/mesi_test.sv
+/home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/mesi_test.sv
+../test/write_miss_cp_cache.sv
+/home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/write_miss_cp_cache.sv
+../test/write_miss_replacement.sv
+/home/grads/h/hbritton/csce714Labs/csce714Project/csce714Project/project/test/write_miss_replacement.sv
